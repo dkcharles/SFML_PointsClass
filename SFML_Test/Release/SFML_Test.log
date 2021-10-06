@@ -1,0 +1,26 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (SFML_1st.vcxproj, SFML_Test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+D:\OneDrive - Ulster University\_Teaching\2021-2022\COM326\_Practicals\SFML_Plot_Points\SFML_Test\main.cpp(21,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\OneDrive - Ulster University\_Teaching\2021-2022\COM326\_Practicals\SFML_Plot_Points\SFML_Test\main.cpp(25,66): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\OneDrive - Ulster University\_Teaching\2021-2022\COM326\_Practicals\SFML_Plot_Points\SFML_Test\main.cpp(25,46): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 73 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SFML_Test.vcxproj -> D:\OneDrive - Ulster University\_Teaching\2021-2022\COM326\_Practicals\SFML_Plot_Points\Release\SFML_Points.exe
