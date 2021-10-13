@@ -6,18 +6,17 @@
 */
 #include <iostream>                                                     // std namespace
 #include <SFML/Graphics.hpp>                                            // sf namespace 
-#include <SFML/OpenGL.hpp>
 #include "graphPoints.h"
 
 int main()
 {
 #pragma region Window Creation
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Plot Points!", sf::Style::Default, sf::ContextSettings(24));   // render a Window
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "Plot Points!", sf::Style::Default, sf::ContextSettings(24));   // render a Window
     window.setVerticalSyncEnabled(true);
     sf::Vector2u winSize = window.getSize();
 #pragma endregion
-    graphPoints graphsPts;
-
+    graphPoints graphPts;
+    graphPts.loadPoints("HeartRate.csv");
     while (window.isOpen())                                             // This is the Windows application loop - infinite loop until closed
     {
 #pragma region Check for Exit
@@ -29,11 +28,11 @@ int main()
         }
 
 #pragma endregion
-        sf::CircleShape pt; pt.setFillColor(sf::Color(255, 0, 0)); pt.setRadius(4); pt.setOrigin(4, 4); pt.setPosition(winSize.x/2, winSize.y/2);
-        graphsPts.addPoint(pt);
-
+        
         window.clear();                                                 // Clear graphics buffer
-        graphsPts.drawPoints(window);
+
+        graphPts.drawPoints(window);
+
         window.display();                                               // Display the graphics from the buffer to the display
     }
 
