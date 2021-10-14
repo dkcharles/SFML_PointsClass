@@ -15,7 +15,7 @@ int main()
     window.setVerticalSyncEnabled(true);
     sf::Vector2u winSize = window.getSize();
 #pragma endregion
-    graphPoints graphPts;
+    graphPoints graphPts;                                               // create an instance of my point plotting class
     graphPts.loadPoints("HeartRate.csv");
     while (window.isOpen())                                             // This is the Windows application loop - infinite loop until closed
     {
@@ -31,7 +31,7 @@ int main()
         
         window.clear();                                                 // Clear graphics buffer
 
-        graphPts.drawPoints(window);
+        graphPts.drawPoints(window);                                    // Call draw function in my class
 
         window.display();                                               // Display the graphics from the buffer to the display
     }
