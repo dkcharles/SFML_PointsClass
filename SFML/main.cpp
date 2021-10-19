@@ -16,7 +16,7 @@ int main()
     sf::Vector2u winSize = window.getSize();
 #pragma endregion
     graphPoints graphPts;                                               // create an instance of my point plotting class
-    graphPts.loadPoints("HeartRate.csv");
+    graphPts.loadPoints("HeartRate.csv", window);
     while (window.isOpen())                                             // This is the Windows application loop - infinite loop until closed
     {
 #pragma region Check for Exit
@@ -29,8 +29,14 @@ int main()
 
 #pragma endregion
         
-        window.clear();                                                 // Clear graphics buffer
+        sf::RectangleShape line; sf::RectangleShape line2;
+        line.setFillColor(sf::Color(0,0,0)); line.setSize(sf::Vector2f(1000, 2)); line.setPosition(50, winSize.y - 50); line.setRotation(0);
+        line2.setFillColor(sf::Color(0,0,0)); line2.setSize(sf::Vector2f(700, 2));  line2.setPosition(50, winSize.y - 50); line2.setRotation(-90);
 
+        window.clear(sf::Color(128,128,128));                                 // Clear graphics buffer
+
+        window.draw(line); 
+        window.draw(line2);
         graphPts.drawPoints(window);                                    // Call draw function in my class
 
         window.display();                                               // Display the graphics from the buffer to the display
