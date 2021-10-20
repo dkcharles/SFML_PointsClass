@@ -29,14 +29,17 @@ int main()
 
 #pragma endregion
         
-        sf::RectangleShape line; sf::RectangleShape line2;
-        line.setFillColor(sf::Color(0,0,0)); line.setSize(sf::Vector2f(1000, 2)); line.setPosition(50, winSize.y - 50); line.setRotation(0);
-        line2.setFillColor(sf::Color(0,0,0)); line2.setSize(sf::Vector2f(700, 2));  line2.setPosition(50, winSize.y - 50); line2.setRotation(-90);
+        // Set up x and y axis lines - this could be modified to look better. Further lines can be drawn in the same way. 
+        // Lines can also be draw more efficiently with vertices. https://en.sfml-dev.org/forums/index.php?topic=11121.0
+        // A function for this code would be better.
+        sf::RectangleShape horizLine; sf::RectangleShape vertLine;
+        horizLine.setFillColor(sf::Color(0,0,0)); horizLine.setSize(sf::Vector2f(1000, 2)); horizLine.setPosition(50, winSize.y - 50); horizLine.setRotation(0);
+        vertLine.setFillColor(sf::Color(0,0,0)); vertLine.setSize(sf::Vector2f(700, 2));  vertLine.setPosition(50, winSize.y - 50); vertLine.setRotation(-90); // anticlockwise
 
-        window.clear(sf::Color(128,128,128));                                 // Clear graphics buffer
+        window.clear(sf::Color(168, 168, 168));                         // Clear graphics buffer
 
-        window.draw(line); 
-        window.draw(line2);
+        window.draw(horizLine);                                         // Draw x and y axis lines 
+        window.draw(vertLine);
         graphPts.drawPoints(window);                                    // Call draw function in my class
 
         window.display();                                               // Display the graphics from the buffer to the display

@@ -1,12 +1,12 @@
 #pragma once
 #include <vector>
-#include <SFML/Graphics.hpp>                                            // sf namespace 
+#include <SFML/Graphics.hpp>																	// sf namespace 
 class graphPoints
 {
 private:
 	std::vector<sf::CircleShape> points;
 	std::vector<std::vector<std::string> > cords;
-	int gap = 2;
+	int pointsGap = 2;																			// Horizontal gap between plotted points
 public:
 
 	graphPoints();

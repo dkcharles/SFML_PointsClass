@@ -42,27 +42,33 @@ void graphPoints::loadPoints(std::string _fileName, sf::RenderWindow& _win) {
 
 #pragma region Create Graph points 
     // add an SFML circle object (as a graph point) to our points vector list
-// set positions of graph points from point co-ordinates loaded in from CSV file
+    // set positions of graph points from point co-ordinates loaded in from CSV file
+
     for (int i = 0; i < cords.size(); ++i) // for number of rows (300 in this example)
     {
-        addPoint(sf::Color(0, 255, 0), 1, sf::Vector2u(1, 1), sf::Vector2f(0, 0));
+        addPoint(sf::Color(0, 0, 255), 1, sf::Vector2u(1, 1), sf::Vector2f(0, 0)); 
         for (int j = 0; j < cords[j].size(); ++j) // for number of columns (2)
         {
+            // set (x, y) position for each graph point (SFML circle object). 
+            // Note that " _win.getSize().y - (50 + " is used to draw the points from bottom of the screen up (starting at my x-axis line at y = 50)
             if (j == 0) points[i].setPosition(sf::Vector2f(float(stoi(cords[i][j])), 0)); // x coordinate 
-            if (j == 1) points[i].setPosition(sf::Vector2f(points[i].getPosition().x + 50 + gap * i, _win.getSize().y - (50 + float(stoi(cords[i][j]))))); // adjusted y coordinate
+            if (j == 1) points[i].setPosition(sf::Vector2f(points[i].getPosition().x + 50 + pointsGap * i, _win.getSize().y - (50 + float(stoi(cords[i][j]))))); // adjusted y coordinate
         }
     }
 #pragma endregion
   
 };
-void graphPoints::addPoint(sf::Color clr, int radius, sf::Vector2u origin, sf::Vector2f position) {
+// Add SFML Circle object to a vector list (points)
+void graphPoints::addPoint(sf::Color clr, int radius, sf::Vector2u origin, sf::Vector2f position) 
+{
     sf::CircleShape pt; pt.setFillColor(clr); pt.setRadius(radius); pt.setOrigin(radius, radius); pt.setPosition(sf::Vector2f(position));
     
     points.push_back(pt);
 };
-void graphPoints::setPointColor(int index, sf::Color _color) {};
-void graphPoints::clearPointList() {};
+void graphPoints::setPointColor(int index, sf::Color _color) {/* not implemented yet*/ };
+void graphPoints::clearPointList() {/* not implemented yet*/ };
 
+// Go through the points (vector list) and draw the points (circles) on the render surface (using a reference to window - _win)
 void graphPoints::drawPoints(sf::RenderWindow &_win) {
     for (int i = 0; i < points.size(); ++i)
     {
